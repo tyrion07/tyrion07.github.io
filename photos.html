@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photos | Your Web App</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start; /* Start from the top of the page */
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto; /* Add margin on the top and center horizontally */
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative; /* Add relative positioning for filter icon placement */
+        }
+
+        .header {
+            font-size: 24px;
+            margin-bottom: 20px;
+            width: 100%;
+        }
+
+        .photo {
+            width: 200px;
+            height: 200px;
+            margin: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .filter-icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .filter-options {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .filter-option {
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+        }
+
+        .filter-option:hover {
+            background-color: #f0f0f0;
+        }
+
+        .filter-option i {
+            margin-right: 5px;
+        }
+
+        .upload-button {
+            margin-top: 20px; /* Add margin to separate from photos */
+        }
+
+        .upload-button a {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-button a i {
+            margin-right: 5px;
+        }
+
+        .upload-button a:hover {
+            background-color: #0056b3; /* Change color on hover */
+        }
+
+        .home-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 24px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="home-icon" onclick="goToHome()">🏠</div>
+        <div class="header">Photos</div>
+        <i class="filter-icon">⚙️</i>
+        <div class="filter-options">
+            <div class="filter-option">
+                <i class="face-icon">😀</i> Filter by Face
+            </div>
+            <div class="filter-option">
+                <i class="uploader-icon">📤</i> Filter by Uploader
+            </div>
+        </div>
+        <div id="photoContainer">
+            <!-- Photos will be dynamically added here -->
+        </div>
+        <div class="upload-button">
+            <a href="#"><i class="upload-icon">➕</i>Upload Photos</a>
+        </div>
+    </div>
+
+    <script>
+        // Simulated array of photo URLs (replace this with actual data)
+        const photoUrls = [
+            'photo1.jpg',
+            'photo2.jpg',
+            'photo3.jpg',
+            'photo4.jpg',
+            'photo5.jpg',
+            'photo6.jpg',
+            'photo7.jpg',
+            'photo8.jpg',
+            'photo9.jpg',
+            'photo10.jpg'
+            // Add more photo URLs as needed
+        ];
+
+        // Function to dynamically generate photo elements
+        function displayPhotos() {
+            const photoContainer = document.getElementById('photoContainer');
+            photoUrls.forEach((url) => {
+                const img = document.createElement('img');
+                img.className = 'photo';
+                img.src = url;
+                img.alt = 'Photo';
+                photoContainer.appendChild(img);
+            });
+        }
+
+        // Call the function to display photos
+        displayPhotos();
+
+        // Toggle filter options visibility on filter icon click
+        const filterIcon = document.querySelector('.filter-icon');
+        const filterOptions = document.querySelector('.filter-options');
+        filterIcon.addEventListener('click', () => {
+            filterOptions.style.display = filterOptions.style.display === 'block' ? 'none' : 'block';
+        });
+
+        // Function to go back to the home page
+        function goToHome() {
+            window.location.href = 'index.html'; // Replace with the actual path to your home page
+        }
+    </script>
+</body>
+</html>

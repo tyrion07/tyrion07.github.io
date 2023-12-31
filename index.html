@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Experience</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: auto; /* Pushes the buttons to the bottom */
+            margin-bottom: 20px; /* Added margin between buttons and bottom */
+            margin-left: 20px;
+            margin-right: 20px;
+        }
+
+        .button {
+            width: 48%;
+            padding: 20px;
+            background-color: #007BFF;
+            color: white;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #ff5049;
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .bottom-banner {
+            background-color: #333; /* Dark background color */
+            color: white;
+            padding: 10px 20px; /* Added padding for left and right margin */
+        }
+
+        .copyright {
+            font-size: 14px;
+            margin-top: 10px; /* Adjusted margin-top */
+        }
+
+        .share-icons {
+            margin-top: 10px;
+        }
+
+        .share-icon {
+            font-size: 24px;
+            margin-right: 10px;
+            cursor: pointer;
+        }
+
+        .button-link {
+            text-decoration: none; /* Remove underline from the anchor element */
+            display: inline-block; /* Maintain the button shape */
+        }
+
+        .video-container {
+            position: relative;
+            width: 90%; /* Adjusted to 90% for the left and right margin */
+            height: 100vh; /* Full height of the viewport */
+            margin: 0 auto; /* Centered horizontally */
+            overflow: hidden; /* Hide any overflow if the video aspect ratio is different */
+        }
+
+        .video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Wedding Experience</div>
+    </div>
+    <div class="video-container">
+        <video class="video" autoplay>
+            <source src="invitation.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="navigateToPage('index.html')"><span class="icon">🏠</span> Home</button>
+        <button class="button" onclick="navigateToPage('photos.html')"><span class="icon">📷</span> Photos</button>
+    </div>
+    <div class="bottom-banner">
+        <div class="copyright">
+            &copy; 2023 Wedding Experience. All rights reserved.
+        </div>
+        <div class="share-icons">
+            Share on:
+            <span class="share-icon">🌐</span>
+            <span class="share-icon">📱</span>
+            <span class="share-icon">📸</span>
+            <span class="share-icon">🐦</span>
+        </div>
+    </div>
+
+    <script>
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+    </script>
+</body>
+</html>
