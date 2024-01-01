@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedding Experience</title>
+    <style>
+        /* Reset some default styles */
+        body, h1, p {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            color: #333;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .logo {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .roadmap {
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center the list div */
+            gap: 20px;
+            margin-left: 10%; /* 10% margin to the left */
+            margin-right: 10%; /* 10% margin to the right */
+        }
+
+        .event {
+            width: 80%; /* Make the list elements consistent in width */
+            cursor: pointer;
+            transition: transform 0.2s ease;
+            text-align: left; /* Align text to the left */
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .event:hover {
+            transform: scale(1.05);
+        }
+
+        .event h2, .event p {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .icon {
+            font-size: 24px;
+            margin-right: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .button {
+            width: 48%;
+            padding: 20px;
+            background-color: #D83F87;
+            color: white;
+            font-size: 24px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #FF6767;
+        }
+
+        /* Popup Styles */
+        .popup {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease, visibility 0.3s ease;
+        }
+
+        .popup.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .popup-content {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .popup h2, .popup p {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">Wedding Experience</div>
+    </div>
+    <div class="roadmap">
+        <div class="event" onclick="showDetails('Mehendi Ceremony', 'Celebrate the colorful Mehendi ceremony with henna designs and joyous music.')">
+            <h2>Event 1: Mehendi Ceremony</h2>
+            <p>Celebrate the colorful Mehendi ceremony with henna designs and joyous music.</p>
+        </div>
+        
+        <div class="event" onclick="showDetails('Sangeet Night', 'Get ready for a night of dance, music, and performances to celebrate the occasion.')">
+            <h2>Event 2: Sangeet Night</h2>
+            <p>Get ready for a night of dance, music, and performances to celebrate the occasion.</p>
+        </div>
+        
+        <div class="event" onclick="showDetails('Wedding Ceremony', 'Witness the beautiful union of two souls in a traditional wedding ceremony.')">
+            <h2>Event 3: Wedding Ceremony</h2>
+            <p>Witness the beautiful union of two souls in a traditional wedding ceremony.</p>
+        </div>
+        
+        <div class="event" onclick="showDetails('Reception', 'Join us for a grand reception filled with delicious food and memorable moments.')">
+            <h2>Event 4: Reception</h2>
+            <p>Join us for a grand reception filled with delicious food and memorable moments.</p>
+        </div>
+    </div>
+    <div class="button-container">
+        <button class="button" onclick="navigateToPage('index.html')"><span class="icon">🏠</span> Home</button>
+        <button class="button" onclick="navigateToPage('photos.html')"><span class="icon">📷</span> Photos</button>
+    </div>
+
+    <!-- Popup for Event Details -->
+    <div class="popup" id="popup1">
+        <div class="popup-content">
+            <h2>Event Details</h2>
+            <p><strong>Event:</strong> <span id="eventTitle"></span></p>
+            <p><strong>Description:</strong> <span id="eventDescription"></span></p>
+            <p><strong>Date:</strong> July 15, 2023</p>
+            <p><strong>Time:</strong> 6:00 PM</p>
+            <button onclick="closePopup('popup1')">Close</button>
+        </div>
+    </div>
+
+    <script>
+        function showDetails(eventTitle, eventDescription) {
+            document.getElementById("eventTitle").textContent = eventTitle;
+            document.getElementById("eventDescription").textContent = eventDescription;
+            openPopup('popup1');
+        }
+
+        function navigateToPage(page) {
+            window.location.href = page;
+        }
+
+        function openPopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.classList.add('active');
+        }
+
+        function closePopup(popupId) {
+            var popup = document.getElementById(popupId);
+            popup.classList.remove('active');
+        }
+    </script>
+</body>
+</html>
