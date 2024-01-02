@@ -1,0 +1,2 @@
+Initailising folder
+This folder will contain all used images for the webpage
