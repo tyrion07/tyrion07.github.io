@@ -1,0 +1,46 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('Images/bg.png'); /* Update this path */
+    background-size: cover;
+    background-attachment: fixed;
+    background-color: #fff; /* Light background for readability */
+    color: #6a1b1a; /* Dark color for text */
+}
+
+/* Increased specificity for overriding Bootstrap styles */
+body .header {
+    background-color: #ffe5d9 !important; /* Light pastel color for a softer look */
+    color: #6a1b1a; /* Dark color for text */
+    text-align: center;
+    padding: 1em 0;
+}
+
+.main {
+    padding: 2em;
+}
+
+.event {
+    background-color: rgba(255, 255, 255, 0.9); /* Light background for event cards */
+    border-color: #a4373a; /* Complementary border color */
+    color: #6a1b1a; /* Dark color for text */
+    margin-bottom: 1em;
+    padding: 1em;
+    border-radius: 10px;
+}
+
+.card-title {
+    color: #a4373a;
+}
+
+/* Increased specificity for overriding Bootstrap styles */
+body .footer {
+    background-color: #ffe5d9 !important; /* Light pastel color for footer */
+    color: #6a1b1a; /* Dark color for text */
+    text-align: center;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
